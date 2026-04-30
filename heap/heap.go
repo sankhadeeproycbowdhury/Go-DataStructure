@@ -2,7 +2,6 @@ package heap
 
 import (
 	"container/heap"
-	"fmt"
 )
 
 type HeapItem[T any] struct {
@@ -43,32 +42,3 @@ func (h *GenericHeap[T]) Peek() (HeapItem[T], bool) {
 	}
 	return (*h)[0], true
 }
-
-func TopKFrequent(nums []int, k int) []int {
-    req := k
-    seen := make(map[int]int)
-    ans := make([]int, 0, k)
-
-    for _, n := range nums {
-        val := seen[n]
-        seen[n] = val + 1
-    }
-
-	fmt.Println(seen)
-
-    pq := NewHeap[int]()
-    for k, v := range seen{
-		fmt.Println(v, k)
-        heap.Push(pq, HeapItem[int]{Priority: v, Data: k})
-    }
-
-    for pq.Len() > 0 && req > 0 {
-        req = req - 1
-        item := heap.Pop(pq).(HeapItem[int])
-        ans = append(ans, item.Data)
-    }
-
-    return ans
-}
-
-
