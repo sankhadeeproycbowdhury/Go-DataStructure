@@ -13,7 +13,7 @@ type GenericHeap[T any] []HeapItem[T]
 
 // Implementation of heap.Interface/sort.Interface
 func (h GenericHeap[T]) Len() int           { return len(h) }
-func (h GenericHeap[T]) Less(i, j int) bool { return h[i].Priority < h[j].Priority }
+func (h GenericHeap[T]) Less(i, j int) bool { return h[i].Priority < h[j].Priority } // min heap change < to > for max heap
 func (h GenericHeap[T]) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 
 func (h *GenericHeap[T]) Push(x any) {
