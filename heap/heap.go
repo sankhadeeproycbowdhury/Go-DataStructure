@@ -44,7 +44,7 @@ func (h *GenericHeap[T]) Peek() (HeapItem[T], bool) {
 	return (*h)[0], true
 }
 
-func topKFrequent(nums []int, k int) []int {
+func TopKFrequent(nums []int, k int) []int {
     req := k
     seen := make(map[int]int)
     ans := make([]int, 0, k)
